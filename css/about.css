@@ -1,0 +1,354 @@
+ .about-main-container {
+   margin: 0 auto;
+   padding: 0 60px;
+   max-width: 1200px;
+   margin-top: 8em;
+   user-select: none;
+ }
+
+ /* ABOUT SECTION */
+
+ #about {
+   margin-bottom: 6%;
+ }
+
+ .title {
+   font-family: serif;
+   letter-spacing: -0.5px;
+   font-style: italic;
+   font-weight: 400;
+   color: #040f4e;
+   font-size: 1.8rem;
+   text-align: left;
+   margin-bottom: 30px;
+ }
+
+
+ .about-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 100px;
+   flex-direction: row-reverse;
+   width: 100%;
+   height: 80vh;
+   margin: 0 auto;
+   padding: 30px;
+ }
+
+ .about-pic-container {
+   position: relative;
+   display: inline-block;
+ }
+
+ .about-pic {
+   width: 400px;
+   height: 500px;
+   object-fit: cover;
+   border-radius: 1rem;
+   margin-bottom: 2em;
+   /* clip-path: ellipse(83% 95% at 50% 50%);
+   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; */
+   animation: shadow-drop-br 0.4s 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ }
+
+ .rotating-image {
+   position: absolute;
+   bottom: -10%;
+   right: -10%;
+   width: 100px;
+   height: 100px;
+   display: block;
+   margin: 50px auto;
+   opacity: 0;
+   visibility: hidden;
+   animation: fadeIn 0.5s ease-in 1s forwards, rotate 8s linear 1s infinite;
+ }
+
+ @keyframes fadeIn {
+   to {
+     opacity: 1;
+     visibility: visible;
+   }
+ }
+
+ @keyframes rotate {
+   to {
+     transform: rotate(360deg);
+   }
+ }
+
+ .about-txt-container {
+   width: 100%;
+ }
+
+ .about-txt {
+   font-size: 1rem;
+   color: #4B5681;
+   line-height: 1.9;
+   text-align: justify;
+   margin: 0 20px 20px auto;
+ }
+
+ .about-link {
+  font-family: serif;
+  letter-spacing: -0.5px;
+  font-style: italic;
+  color: #040f4e;
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 5px;
+  transition: transform 0.5s ease, color 0.5s ease;
+  text-decoration: none;
+}
+
+.link-text {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+.about-link i {
+  font-size: 17px;
+  font-weight: bold;
+  position: relative;
+  top: 2px;
+  transition: transform 0.5s ease;
+}
+
+.about-link:hover {
+  transform: translate(10px, -10px);
+}
+
+
+ /* SKILLS SECTION */
+
+ .skills-container {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 10rem;
+   margin-bottom: 10rem;
+   max-width: 1200px;
+ }
+
+
+ .skills-container li {
+   margin: 0;
+   padding: 0;
+   line-height: 2;
+   list-style: none;
+   font-size: 1rem;
+   color: #434c77;
+ }
+
+ /* SOFTWARE SECTION */
+
+ .software-container {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 10rem;
+   margin-bottom: 10rem;
+   max-width: 1200px;
+ }
+
+ .software-container h3 {
+   font-family: 'PP Neue Montreal', sans-serif;
+   font-size: 1rem;
+   font-weight: 400;
+   text-transform: uppercase;
+   margin-bottom: 2em;
+   text-align: left;
+   color: #040f4e;
+ }
+
+ .software-container li {
+   margin: 0;
+   padding: 0;
+   line-height: 2;
+   list-style: none;
+   font-size: 1rem;
+   color: #4B5681;
+ }
+
+ /* INTEREST SECTION  */
+
+ .heading-title h2 {
+   font-family: serif;
+   letter-spacing: -0.5px;
+   font-style: italic;
+   font-weight: 100;
+   font-size: 1.7rem;
+   color: #040f4e;
+   text-align: left;
+   padding: 8rem 0 8rem 0;
+ }
+
+ .heading-title span {
+   text-decoration: underline;
+   text-underline-offset: 10px;
+   text-decoration-color: rgba(3, 102, 214, 0.3);
+   text-decoration-thickness: 3px;
+ }
+
+ .interests-section {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 0;
+ }
+
+ .image-row {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+ }
+
+ .interest-item img {
+   width: 100%;
+   height: auto;
+   display: block;
+   object-fit: cover;
+   transition: transform 0.3s ease-in-out;
+ }
+
+ .interest-item:hover img {
+   transform: translateY(-10px);
+ }
+
+ /* CTA SECTION */
+
+ .window-wrapper {
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .window {
+   width: 420px;
+   background-color: #ffeded;
+   border-radius: 10px;
+   box-shadow: 8px 8px 0px rgba(255, 110, 110, 0.5);
+   border: 2px solid #e74c3c;
+   overflow: hidden;
+   margin-top: 10%;
+   margin-bottom: 5%;
+ }
+
+ .win-title-bar {
+   background-color: #ffffff;
+   padding: 8px;
+   display: flex;
+   align-items: center;
+   border-bottom: 2px solid #e74c3c;
+ }
+
+ .win-buttons {
+   display: flex;
+   gap: 5px;
+   margin-left: 5px;
+ }
+
+ .winbutton {
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   border: 1px solid #e74c3c;
+ }
+
+ .red {
+   background-color: #e74c3c;
+ }
+
+ .yellow {
+   background-color: #f1c40f;
+ }
+
+ .green {
+   background-color: #2ecc71;
+ }
+
+ .win-content {
+   padding: 20px;
+   font-family: Arial, sans-serif;
+   font-size: 14px;
+   color: #040f4e;
+   line-height: 1.6;
+ }
+
+
+ /* SCROLL ANIMATION JS*/
+
+ .about-txt-container.hidden {
+   opacity: 0;
+   transform: translateX(-30px);
+   /* Move right initially */
+   transition: opacity 1s ease-in-out 0.6s, transform 1s ease-in-out 0.6s;
+ }
+
+ .about-txt-container.show {
+   opacity: 1;
+   transform: translateX(0);
+   /* Move to normal position */
+ }
+
+
+ /* WAVE ANIMATION CTA */
+ .wave {
+   animation-name: wave-animation;
+   /* Refers to the name of your @keyframes element below */
+   animation-duration: 2.5s;
+   /* Change to speed up or slow down */
+   animation-iteration-count: infinite;
+   /* Never stop waving :) */
+   transform-origin: 70% 70%;
+   /* Pivot around the bottom-left palm */
+   display: inline-block;
+ }
+
+ @keyframes wave-animation {
+   0% {
+     transform: rotate(0.0deg)
+   }
+
+   10% {
+     transform: rotate(14.0deg)
+   }
+
+   /* The following five values can be played with to make the waving more or less extreme */
+   20% {
+     transform: rotate(-8.0deg)
+   }
+
+   30% {
+     transform: rotate(14.0deg)
+   }
+
+   40% {
+     transform: rotate(-4.0deg)
+   }
+
+   50% {
+     transform: rotate(10.0deg)
+   }
+
+   60% {
+     transform: rotate(0.0deg)
+   }
+
+   /* Reset for the last half to pause */
+   100% {
+     transform: rotate(0.0deg)
+   }
+ }
+
+
+
+ 
+
+
