@@ -7,24 +7,24 @@ This is my portfolio, a small space where I share my projects, experiments, and 
 
 ---
 
-### 🧩 overview
+### 🧩 Overview
 built from scratch using HTML, CSS, and JavaScript — with a focus on clean layout, responsive design, and quiet detail.
 
 ---
 
-### ✏️ design system
+### ✏️ Design system
 
-**fonts:**  
+**Fonts:**  
 → PP Neue Montreal  
 
-**colors**  
+**Colors**  
 - #040F4E — headings  
 - #4B5681 — text  
 - #C93D5E — accent / logo  
 
 ---
 
-### 🛠 tech stack
+### 🛠 Tech Stack
 html · css · javascript · bootstrap 5 · figma · responsive design
 
 ---
