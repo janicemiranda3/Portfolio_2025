@@ -1,6 +1,6 @@
 # Portfolio 2025
 
-# 💻 Jnce
+# Jnce
 
 Hey, I'm Janice — a ui/ux designer and front-end developer.  
 This is my portfolio, a small space where I share my projects, experiments, and a bit of my process.
