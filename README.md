@@ -1,19 +1,38 @@
-# Portfolio_2025
+# Portfolio 2025
 
+# 💻 Jnce
 
-# 🌿 Jnce Portfolio Website
-
-Hey! I'm Janice — a UI/UX designer and front-end developer who loves building clean, meaningful digital experiences.  
-This portfolio is a collection of my design projects, case studies, and web experiments, designed and hand-coded with HTML, CSS, and JS.
+Hey, I'm Janice — a ui/ux designer and front-end developer.  
+This is my portfolio, a small space where I share my projects, experiments, and a bit of my process.
 
 ---
 
-### 💻 Tech Stack
-- HTML5  
-- CSS   
-- JavaScript  
-- Figma  
-   
+### 🧩 overview
+built from scratch using HTML, CSS, and JavaScript — with a focus on clean layout, responsive design, and quiet detail.
+
+---
+
+### ✏️ design system
+
+**fonts:**  
+→ PP Neue Montreal  
+
+**colors**  
+- #040F4E — headings  
+- #4B5681 — text  
+- #C93D5E — accent / logo  
+
+---
+
+### 🛠 tech stack
+html · css · javascript · bootstrap 5 · figma · responsive design
+
+---
+
+# PROJECT-CASE-STUDIES
+- Zushi Food Delivery UI/UX (mobile)
+- Health Insurance (mobile & site)
+- e-commerce retail (site)
 ---
 
 ### 🧠 What I Focus On
@@ -23,7 +42,7 @@ This portfolio is a collection of my design projects, case studies, and web expe
 
 ---
 
-### 🪴 Goals
+### ⭐️ Goals
 This site will grow as I add new projects and refine my design style. It’s a space for both professional work and personal exploration.
 
 ---
