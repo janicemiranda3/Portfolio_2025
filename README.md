@@ -29,7 +29,7 @@ html · css · javascript · bootstrap 5 · figma · responsive design
 
 ---
 
-# PROJECT-CASE-STUDIES
+### 🍥 Projects
 - Zushi Food Delivery UI/UX (mobile)
 - Health Insurance (mobile & site)
 - e-commerce retail (site)
