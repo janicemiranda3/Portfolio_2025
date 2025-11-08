@@ -27,11 +27,6 @@
 }
 
 body {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-body {
   font-family: 'PP Neue Montreal', sans-serif;
   color: #040f4e;
   margin: 0;
