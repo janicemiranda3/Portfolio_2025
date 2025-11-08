@@ -48,7 +48,7 @@ This site will grow as I add new projects and refine my design style. It’s a s
 ---
 
 ### 🌐 Live Site
-[Visit Portfolio](https://yourdomain.space)  
+[Visit Portfolio](www.jnce.website)  
 
 ---
 
