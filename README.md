@@ -1,7 +1,7 @@
 # Portfolio_2025
 
 
-# 🌿 Jnce Portfolio
+# 🌿 Jnce Portfolio Website
 
 Hey! I'm Janice — a UI/UX designer and front-end developer who loves building clean, meaningful digital experiences.  
 This portfolio is a collection of my design projects, case studies, and web experiments, designed and hand-coded with HTML, CSS, and JS.
