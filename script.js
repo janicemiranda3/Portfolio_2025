@@ -180,8 +180,21 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 // Initialize the cursor
+// Initialize the cursor (desktop only)
 document.addEventListener("DOMContentLoaded", function () {
-    cursor.init();
+    // Detect touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (!isTouchDevice) {
+        // Run custom cursor only on desktop
+        cursor.init();
+    } else {
+        // Hide custom cursor completely on mobile
+        const dot = document.querySelector('.cursor-dot');
+        const outline = document.querySelector('.cursor-dot-outline');
+        if (dot) dot.style.display = 'none';
+        if (outline) outline.style.display = 'none';
+    }
 });
 
 
