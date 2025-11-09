@@ -31,8 +31,8 @@ html · css · javascript · figma · responsive design
 
 ### 🍥 Projects
 - Zushi Food Delivery UI/UX (mobile)
-- Health Insurance (mobile & site)
-- e-commerce retail (site)
+- Aira Wellness App (mobile & site)
+- TRED e-commerce retail (site)
 ---
 
 ### 🧠 What I Focus On
