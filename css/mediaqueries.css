@@ -122,11 +122,6 @@
 
 @media (max-width: 900px) {
 
-   .about-main-container {
-   margin: 0 auto;
-   padding: 0 35px !important;
- }
-
   .about-container {
     flex-direction: column;
     align-items: center;
