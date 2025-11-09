@@ -25,7 +25,7 @@ built from scratch using HTML, CSS, and JavaScript — with a focus on clean lay
 ---
 
 ### 🛠 Tech Stack
-html · css · javascript · bootstrap 5 · figma · responsive design
+html · css · javascript · figma · responsive design
 
 ---
 
