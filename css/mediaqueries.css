@@ -345,6 +345,10 @@
 /* Move 600px below 768px so it applies correctly */
 @media (max-width: 600px) {
 
+  .about-main-container {
+   margin: 0 auto;
+   padding: 0 40px;
+ }
   .index-main-container {
     padding: 0px 20px;
   }
