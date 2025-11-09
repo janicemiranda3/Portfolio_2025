@@ -25,14 +25,14 @@ built from scratch using HTML, CSS, and JavaScript — with a focus on clean lay
 ---
 
 ### 🛠 Tech Stack
-html · css · javascript · bootstrap 5 · figma · responsive design
+html · css · javascript · figma · responsive design
 
 ---
 
 ### 🍥 Projects
 - Zushi Food Delivery UI/UX (mobile)
-- Health Insurance (mobile & site)
-- e-commerce retail (site)
+- Aira Wellness App (mobile & site)
+- TRED e-commerce retail (site)
 ---
 
 ### 🧠 What I Focus On
@@ -48,7 +48,7 @@ This site will grow as I add new projects and refine my design style. It’s a s
 ---
 
 ### 🌐 Live Site
-[Visit Portfolio](www.jnce.website)  
+[Visit Portfolio]( https://www.jnce.website/)  
 
 ---
 
