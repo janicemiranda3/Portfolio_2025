@@ -335,9 +335,8 @@ p {
   right: 20px; 
   top: 20px;
   width: 22px; 
-    animation: retroSway 1s steps(2) infinite;
+  animation: retroSway 1s steps(2) infinite;
 }
-
 
 /* CASE STUDIES SECTION */
 
