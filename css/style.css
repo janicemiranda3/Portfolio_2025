@@ -451,7 +451,7 @@ p {
   transform: scale(1.05);
 }
 
-/* NAME TAGS / PILLS */
+/* NAME TAGS OR PILLS */
 
 .tag-container {
   display: flex;
