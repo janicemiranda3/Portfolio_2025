@@ -451,22 +451,6 @@ p {
   transform: scale(1.05);
 }
 
-/* text + arrow transition */
-.case-text a p,
-.case-text a i {
-  transition: color 0.3s ease;
-}
-
-/* change color when hovering the project */
-.box1:hover .case-text a p,
-.box1:hover .case-text a i,
-.box2:hover .case-text a p,
-.box2:hover .case-text a i,
-.bottom-case:hover .case-text a p,
-.bottom-case:hover .case-text a i {
-  color: #e85f7b;
-}
-
 /* NAME TAGS OR PILLS */
 
 .tag-container {
