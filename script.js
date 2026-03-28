@@ -234,3 +234,18 @@ window.addEventListener("resize", function () {
     document.body.style.transition = "background-color 0.5s ease-in-out";
 });
 
+// Hamburger Menu Animation ------>
+
+const menuIcon = document.getElementById("menu-icon");
+
+menuIcon.addEventListener("click", () => {
+  menuIcon.classList.toggle("active");
+
+  if (menuIcon.classList.contains("active")) {
+    menuIcon.classList.remove("ph-equals");
+    menuIcon.classList.add("ph-x");
+  } else {
+    menuIcon.classList.remove("ph-x");
+    menuIcon.classList.add("ph-equals");
+  }
+});

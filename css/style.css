@@ -115,9 +115,8 @@ p {
   }
 }
 
-
 .logo {
-  margin-left: 25px;
+  margin-left: 5px;
 }
 
 .circle-logo {
@@ -193,10 +192,14 @@ p {
   padding-right: 1.6rem;
 }
 
-
 #menu-icon {
   display: none;
   /* Hide menu icon by default (desktop view) */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#menu-icon.active {
+  transform: rotate(90deg);
 }
 
 .connect-btn {
