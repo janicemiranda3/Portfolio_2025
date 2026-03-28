@@ -194,7 +194,7 @@ p {
 
 #menu-icon {
   display: none;
-  /* Hide menu icon by default (desktop view) */
+  /* Hide menu icon by default (desktop) */
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -271,7 +271,6 @@ p {
   margin-top: 2rem;
   user-select: none;
 }
-
 
 /* HERO SECTION */
 
@@ -442,6 +441,7 @@ p {
 }
 
 /* Hover Effects */
+
 .case-left:hover img {
   transform: scale(1.05);
 }
