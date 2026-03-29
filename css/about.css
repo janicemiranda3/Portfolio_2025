@@ -83,9 +83,9 @@
  }
 
  .about-txt {
-   font-size: 1rem;
+   font-size: 1.04rem;
    color: #4B5681;
-   line-height: 1.9;
+   line-height: 1.8;
    text-align: justify;
    margin: 0 20px 20px auto;
  }
@@ -139,7 +139,7 @@
    padding: 0;
    line-height: 2;
    list-style: none;
-   font-size: 1rem;
+   font-size: 1.04rem;
    color: #434c77;
  }
 
@@ -157,7 +157,7 @@
 
  .software-container h3 {
    font-family: 'PP Neue Montreal', sans-serif;
-   font-size: 1rem;
+   font-size: 1.04rem;
    font-weight: 400;
    text-transform: uppercase;
    margin-bottom: 2em;
@@ -170,7 +170,7 @@
    padding: 0;
    line-height: 2;
    list-style: none;
-   font-size: 1rem;
+   font-size: 1.04rem;
    color: #4B5681;
  }
 
