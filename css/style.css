@@ -246,9 +246,9 @@ p {
     display: block;
     /* Show menu icon in mobile view */
     position: absolute;
-    top: 35px;
-    right: 37px;
-    font-size: 30px;
+    top: 30px;
+    right: 35px;
+    font-size: 37px;
     cursor: pointer;
   }
 
