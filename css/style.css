@@ -402,7 +402,7 @@ p {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 400ms ease-in-out;
 }
 
 .case-right {
@@ -420,7 +420,7 @@ p {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 400ms ease-in-out;
 }
 
 .case-bottom {
@@ -438,7 +438,7 @@ p {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 400ms ease-in-out;
 }
 
 /* Hover Effects */
