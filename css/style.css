@@ -4,19 +4,6 @@
 @import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 @import url('https://fonts.cdnfonts.com/css/merchant');
 
-@font-face {
-  font-family: 'ZT Formom';
-  src: url('fonts/ZT-Regular.woff2') format('woff2');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'ZT Formom';
-  src: url('fonts/ZT-Italic.woff2') format('woff2');
-  font-style: italic;
-  letter-spacing: -0.5px;
-}
-
 *,
 *:before,
 *:after {
@@ -301,9 +288,9 @@ p {
 
 .hero-box h1 {
   font-family: serif;
-  letter-spacing: -0.5px;
-  font-size: 2.8rem;
-  font-weight: 500;
+  font-style: normal;
+  font-size: 3.2rem;
+  font-weight: 400;
   line-height: 3.5rem;
   text-align: left;
   color: #4B5681;
@@ -327,7 +314,7 @@ p {
 
 .underline-img {
   position: absolute;
-  left: 140px;
+  left: 175px;
   bottom: 46px; 
   width: 138px; 
 }
