@@ -4,6 +4,13 @@
 @import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 @import url('https://fonts.cdnfonts.com/css/merchant');
 
+@font-face {
+  font-family: "Rungli";
+  src: url("../fonts/Rungli-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
 *,
 *:before,
 *:after {
@@ -287,7 +294,7 @@ p {
 }
 
 .hero-box h1 {
-  font-family: serif;
+  font-family: "Rungli", serif;
   font-style: normal;
   font-size: 3.2rem;
   font-weight: 400;

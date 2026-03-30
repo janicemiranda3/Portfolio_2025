@@ -13,7 +13,7 @@
  }
 
  .title {
-   font-family: serif;
+   font-family: "Rungli", serif;
    letter-spacing: -0.5px;
    font-style: italic;
    font-weight: 400;
@@ -177,7 +177,7 @@
  /* INTEREST SECTION  */
 
  .heading-title h2 {
-   font-family: serif;
+   font-family: "Rungli", serif;
    letter-spacing: -0.5px;
    font-style: italic;
    font-weight: 100;

@@ -29,7 +29,7 @@
 
 
 .study-text-container h1 {
-    font-family: serif;
+    font-family: "Rungli", serif;
     letter-spacing: -0.5px;
     font-style: italic;
     font-size: 2rem;
@@ -234,7 +234,7 @@
 }
 
 .persona-quote {
-   font-family: serif;
+   font-family: "Rungli", serif;
    letter-spacing: -0.5px;
     font-size: 24px;
     font-weight: 500;
@@ -513,7 +513,7 @@
 }
 
 .testimonial-text {
-  font-family: serif;
+  font-family: "Rungli", serif;
   font-size: 1.3rem;
   color: #4B5681;
   font-style: italic;
@@ -561,13 +561,7 @@
     }
   }
 
-  
-  
-  
-  
-
 /* #10 Takeaways */
-
 
 .takeaway-section {
     margin: 5rem 1.5rem;
@@ -582,7 +576,7 @@
   }
   
   .takeaway-subheading {
-    font-family: serif;
+    font-family: "Rungli", serif;
     letter-spacing: -0.5px;
     font-style: italic;
     letter-spacing: -0.5px;
