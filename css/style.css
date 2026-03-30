@@ -6,6 +6,13 @@
 
 @font-face {
   font-family: "Rungli";
+  src: url("../fonts/Rungli-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rungli";
   src: url("../fonts/Rungli-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
