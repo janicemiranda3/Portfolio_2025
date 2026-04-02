@@ -343,6 +343,32 @@
 
 }
 
+@media (max-width: 768px){
+  .cta-contact-section{
+    margin-top: 2rem;
+    padding: 80px 10px;
+  }
+  
+  .cta-contact-grid{
+    grid-template-columns: 1fr;
+    gap: 100px;
+  }
+  
+  .cta-right{
+    justify-content:center;
+    align-items:center;
+  }
+
+  .cta-scramble-wrap{
+    text-align:center;
+    margin:0 auto;
+  }
+
+  .music-text{
+    font-size: 16px;
+  }
+}
+
 /* Move 600px below 768px so it applies correctly */
 @media (max-width: 600px) {
 

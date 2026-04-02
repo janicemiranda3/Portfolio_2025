@@ -239,13 +239,133 @@ window.addEventListener("resize", function () {
 const menuIcon = document.getElementById("menu-icon");
 
 menuIcon.addEventListener("click", () => {
-  menuIcon.classList.toggle("active");
+    menuIcon.classList.toggle("active");
 
-  if (menuIcon.classList.contains("active")) {
-    menuIcon.classList.remove("ph-equals");
-    menuIcon.classList.add("ph-x");
-  } else {
-    menuIcon.classList.remove("ph-x");
-    menuIcon.classList.add("ph-equals");
-  }
+    if (menuIcon.classList.contains("active")) {
+        menuIcon.classList.remove("ph-equals");
+        menuIcon.classList.add("ph-x");
+    } else {
+        menuIcon.classList.remove("ph-x");
+        menuIcon.classList.add("ph-equals");
+    }
 });
+
+// CTA Text Scramble Effect ------>
+
+class TextScramble {
+    constructor(el) {
+        this.el = el
+        this.chars = '!<>-_\\/[]{}—=+*^?#________'
+        this.update = this.update.bind(this)
+    }
+
+    setText(newText) {
+        const oldText = this.el.innerText
+        const length = Math.max(oldText.length, newText.length)
+
+        const promise = new Promise((resolve) => {
+            this.resolve = resolve
+        })
+
+        this.queue = []
+
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || ''
+            const to = newText[i] || ''
+            const start = Math.floor(Math.random() * 40)
+            const end = start + Math.floor(Math.random() * 60)
+            this.queue.push({ from, to, start, end })
+        }
+
+        cancelAnimationFrame(this.frameRequest)
+        this.frame = 0
+        this.update()
+        return promise
+    }
+
+    update() {
+        let output = ''
+        let complete = 0
+
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+
+            let { from, to, start, end, char } = this.queue[i]
+
+            if (this.frame >= end) {
+                complete++
+                output += to
+
+            } else if (this.frame >= start) {
+
+                if (!char || Math.random() < 0.15) {
+                    char = this.randomChar()
+                    this.queue[i].char = char
+                }
+
+                output += `<span class="scramble-dud">${char}</span>`
+
+            } else {
+                output += from
+            }
+        }
+
+        this.el.innerHTML = output
+
+        if (complete === this.queue.length) {
+            this.resolve()
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update)
+            this.frame++
+        }
+    }
+
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)]
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const section = document.querySelector(".cta-scramble-section")
+
+    const line1 = document.getElementById("scramble-line-1")
+    const line1b = document.getElementById("scramble-line-1b")
+
+    const line2 = document.getElementById("scramble-line-2")
+    const line2b = document.getElementById("scramble-line-2b")
+
+    const fx1 = new TextScramble(line1)
+    const fx1b = new TextScramble(line1b)
+
+    const fx2 = new TextScramble(line2)
+    const fx2b = new TextScramble(line2b)
+
+    let hasAnimated = false
+
+    const scrambleObserver = new IntersectionObserver(async (entries) => {
+
+        for (const entry of entries) {
+
+            if (entry.isIntersecting && !hasAnimated) {
+
+                hasAnimated = true
+
+                await fx1.setText("Thanks for checking out")
+                await fx1b.setText("my corner of the Internet! 💌")
+
+                setTimeout(async () => {
+
+                    await fx2.setText("If you want to contact me, feel free")
+                    await fx2b.setText("to reach out through any of the links below.")
+
+                }, 400)
+
+            }
+
+        }
+
+    }, { threshold: 0.4 })
+
+    scrambleObserver.observe(section)
+
+})

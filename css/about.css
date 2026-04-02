@@ -222,65 +222,115 @@
 
  /* CTA SECTION */
 
- .window-wrapper {
-   margin: 0 auto;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- }
+.cta-contact-section{
+  margin-top: 5rem;
+  padding: 100px 0px;
+}
 
- .window {
-   width: 420px;
-   background-color: #fff5f5;
-   border-radius: 10px;
-   box-shadow: 8px 8px 0px rgba(255, 110, 110, 0.5);
-   border: 2px solid #e74c3c;
-   overflow: hidden;
-   margin-top: 10%;
-   margin-bottom: 5%;
- }
+.cta-contact-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 40px;
+}
 
- .win-title-bar {
-   background-color: #ffffff;
-   padding: 8px;
-   display: flex;
-   align-items: center;
-   border-bottom: 2px solid #e74c3c;
- }
+.cta-left{
+  min-width: 0;
+}
 
- .win-buttons {
-   display: flex;
-   gap: 5px;
-   margin-left: 5px;
- }
+.cta-right{
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+  height:100%;
+}
 
- .winbutton {
-   width: 12px;
-   height: 12px;
-   border-radius: 50%;
-   border: 1px solid #e74c3c;
- }
+.cta-scramble-wrap{
+  max-width: 700px;
+  text-align: left;
+}
 
- .red {
-   background-color: #e74c3c;
- }
+.cta-scramble-line{
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.6;
+  font-weight: 400;
+  color: #040f4e;
+}
 
- .yellow {
-   background-color: #f1c40f;
- }
+.cta-scramble-sub{
+  font-family: 'PP Neue Montreal', sans-serif;
+  font-weight: 400;
+  margin-top: 14px;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  color: #4B5681;
+}
 
- .green {
-   background-color: #2ecc71;
- }
+.scramble-dud{
+  color: #a8a8a8;
+}
 
- .win-content {
-   padding: 55px;
-   font-family: Arial, sans-serif;
-   font-size: 15px;
-   color: #040f4e;
-   line-height: 1.6;
- }
+/* Music Player */
 
+.music-status{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.music-cover{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+.music-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: spin 6s linear infinite;
+}
+
+.music-text{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.song{
+  color: #4B5681;
+  font-weight: 500;
+}
+
+.divider{
+  color: #bfbfbf;
+}
+
+.divider i{
+  padding-top: 2px;
+  color: #4B5681;
+}
+
+.vibe{
+  color: #8f8f8f;
+}
+
+@keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
 
  /* SCROLL ANIMATION JS*/
 
