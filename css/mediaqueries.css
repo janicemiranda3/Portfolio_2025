@@ -364,6 +364,10 @@
     margin:0 auto;
   }
 
+  .music-status {
+    padding: 0px 30px;
+  }
+
   .music-text{
     font-size: 16px;
   }
