@@ -281,38 +281,64 @@
           
         <hr>
 
-        <!-- testimonials -->
-        <section class="testimonial-section hidden">
-            <!-- <h2 class="section-title">Peer Reflections</h2> -->
-            <i class="ph-fill ph-quotes"></i>
-            <div class="testimonial-wrapper">
-              <div class="testimonial-slider">
-                <div class="testimonial-slide">
-                  <p class="testimonial-text">
-                    “I liked your case study and the colors you chose for the app! Really great layout and spacing in your designs Great descriptions in your case study too. Good job!”
-                  </p>
-                  <p class="testimonial-author">— Julia K.</p>
-                </div>
-          
-                <div class="testimonial-slide">
-                  <p class="testimonial-text">
-                    “The case study provides a good starting point for showcasing the design process of the sushi ordering app. The user research section highlights the importance of understanding customer needs.”
-                  </p>
-                  <p class="testimonial-author">— Omar Castillo.</p>
-                </div>
-              </div>
-            </div>
+        <!-- #10 Testimonials -->
+        <section class="reviews-section">
+            <div class="reviews-grid">
 
-            <!-- dots -->
-            <div class="testimonial-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-            </div>
+                <div class="reviews-intro hidden">
+                    <h2>What Users Think About Zushi</h2>
+                    <p>Feedback shared by peers after reviewing the Zushi ordering experience.</p>
+                </div>
 
-          </section>
+                <div class="review-card review-card-large hidden">
+                    <div class="review-stars">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="review-text">
+                        “The case study provides a good starting point for showcasing the design process of the sushi
+                        ordering app. The user research section highlights the importance of understanding customer
+                        needs.”
+                    </p>
+                    <div class="review-user">
+                        <div class="review-user-info">
+                            <span class="review-name">Omar Castillo.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card hidden">
+                    <div class="review-stars">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="review-text">
+                        “I liked your case study and the colors you chose for the app! Really great layout and spacing
+                        in your designs Great descriptions in your case study too. Good job!”
+                    </p>
+                    <div class="review-user">
+                        <div class="review-user-info">
+                            <span class="review-name">Julia K.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        
           <hr>
           
-        <!-- #10 Takeaways -->
+
+        <!-- #11 Takeaways -->
+
         <section class="takeaway-section">
             <h2 class="section-title hidden">Takeaways</h2>
           
@@ -367,52 +393,6 @@
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 
-    <script>
-        // Testimonial Slider Dots
-        const slider = document.querySelector('.testimonial-slider');
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-        let autoSlideInterval;
-
-        function goToSlide(index) {
-        slider.style.transform = `translateX(-${index * 100}%)`;
-        currentSlide = index;
-        updateDots();
-        }
-
-        function updateDots() {
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        goToSlide(currentSlide);
-        }
-
-        function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 6000);
-        }
-
-        function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-        }
-
-        dots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-        const index = parseInt(e.target.getAttribute('data-slide'));
-        stopAutoSlide();
-        goToSlide(index);
-        startAutoSlide();
-        });
-    });
-
-    // Initialize
-        goToSlide(0);
-        startAutoSlide();
-    </script>
 </body>
 
 </html>
