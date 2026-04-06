@@ -3,7 +3,6 @@
    padding: 0 60px;
    max-width: 1200px;
    margin-top: 8em;
-   user-select: none;
  }
 
  /* ABOUT SECTION */
@@ -85,7 +84,7 @@
  .about-txt {
    font-size: 1.04rem;
    color: #4B5681;
-   line-height: 1.8;
+   line-height: 1.7;
    text-align: justify;
    margin: 0 20px 20px auto;
  }
