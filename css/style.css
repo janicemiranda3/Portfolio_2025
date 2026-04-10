@@ -484,6 +484,140 @@ p {
   color: #c7c9d5;
 }
 
+/* Explorations Section */
+
+.artwork-container {
+  padding: 0px 80px;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.artwork-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+}
+
+.artwork-title h1 {
+  font-family: "Rungli",serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-style: italic;
+  letter-spacing: -1.5px;
+  font-weight: 200;
+  line-height: 1.05;
+  text-align: left;
+  color: #4B5681;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px;
+  align-items: start;
+  padding: 50px 0 10px 0;
+}
+
+.gallery-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  max-width: 100%;
+  height: 420px;
+  display: block;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: all 400ms ease-in-out;
+}
+
+.gallery-item:hover img {
+   transform: translateY(-10px);
+  /* transform: scale(1.02); */
+  /* opacity: 0.5; */
+  /* filter: brightness(0.85); */
+}
+
+.gallery-item-wrap {
+  display:flex;
+  flex-direction:column;
+  gap: 20px;
+}
+
+.gallery-title {
+  font-size: 1.2rem;
+}
+
+.description {
+  font-size: 1rem;
+  color:#666 ;
+  max-width: 80%;
+  line-height: 1.6;
+}
+
+.gallery-title i {
+  font-size: 18px;
+  color: #040f4e;
+  position: relative;
+  top: 3px;
+}
+
+.gallery-title i{
+  margin-left:6px;
+  display:inline-block;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+.gallery-item:hover .gallery-title i{
+  transform: translateX(8px);
+}
+
+.gallery-title-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.gallery-pill{
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius:999px;
+  border: 1px solid #8a8f98;
+  color:#6c717a;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* Artwork Scroll Animation */
+
+.artwork-title.hidden {
+   opacity: 0;
+   transform: translateY(-10px);
+   transition: opacity 1s ease-in-out 0.6s, transform 1s ease-in-out 0.6s;
+ }
+
+ .artwork-title.show {
+   opacity: 1;
+   transform: translateY(0);
+ }
+
+.gallery-item.hidden {
+   opacity: 0;
+   transform: translateY(30px);
+   transition: opacity 1s ease-in-out 0.6s, transform 1s ease-in-out 0.6s;
+ }
+
+ .gallery-item.show {
+   opacity: 1;
+   transform: translateY(0);
+ }
+
 /* FOOTER SECTION */
 
 footer {

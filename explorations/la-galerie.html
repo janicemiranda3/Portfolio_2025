@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Galerie</title>
+    <meta name="description"
+        content="Hi, I'm Janice Miranda – UI/UX & Web Designer. Explore my portfolio projects, case studies, and design process.">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1"></script>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/gt-america-trial');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0c0c0f;
+            --panel: #121218;
+            --text: #f5f3ee;
+            --muted: #b7b0a3;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(254, 117, 32, 0.458), transparent 25%),
+                radial-gradient(circle at bottom right, rgba(142, 92, 255, 0.10), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+
+            background-image: url("https://cdn.prod.website-files.com/6375aba502e4024e31970c83/64c5777a16fce3dec205a316_Grain.gif");
+            opacity: .10;
+            mix-blend-mode: overlay;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            min-height: 100vh;
+        }
+
+        /* NAV BAR */
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+            background: linear-gradient(to bottom, rgba(12, 12, 15, 0.78), rgba(12, 12, 15, 0));
+            backdrop-filter: blur(10px);
+        }
+
+        .brand {
+            font-size: 0.9rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #ece7db;
+        }
+
+        .nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: #e7e0d2;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            align-items: end;
+            padding: 110px 28px 34px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 30px;
+            align-items: end;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #d5ccb9;
+        }
+
+        .hero h1 {
+            font-family: "GT America Trial", sans-serif;
+            font-weight: 300;
+            font-size: clamp(3rem, 8vw, 8rem);
+            line-height: 0.92;
+            letter-spacing: -0.06em;
+            max-width: 900px;
+            color: #cfc6b7;
+        }
+
+        .hero-copy {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 360px;
+            margin-left: auto;
+            padding-bottom: 14px;
+        }
+
+        /* HORIZONTAL GALLERY */
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            padding: 0 28px 128px;
+        }
+
+        .section-head h2 {
+            font-family: "GT America Trial", sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 5px;
+            text-decoration-style: dotted;
+            letter-spacing: 0.04em;
+            font-size: 1rem;
+            line-height: 0.95;
+        }
+
+        .section-head p {
+            max-width: 380px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .section-head i {
+            font-size: 1.5rem;
+            position: relative;
+            top: 5px;
+        }
+
+        .gallery-wrap {
+            padding: 80px 0 30px 0;
+        }
+
+        .gallery-scroll {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(320px, 38vw);
+            gap: 30px;
+            overflow-x: auto;
+            padding: 0 28px 14px 28px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+        }
+
+        .art-card {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            border: 1px solid var(--border);
+            background: #18181f;
+            isolation: isolate;
+            cursor: pointer;
+        }
+
+        .card1 {
+            height: 560px;
+        }
+
+        .card2 {
+            height: 420px;
+            margin-top: 5rem;
+        }
+
+        .card3 {
+            height: 560px;
+        }
+
+        .card4 {
+            height: 400px;
+            margin-top: 5rem;
+        }
+
+        .art-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1);
+            transition: transform 450ms ease;
+        }
+
+        .art-card:hover .art-bg {
+            transform: scale(1.05);
+        }
+
+        .art-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, rgba(10, 10, 12, 0.94) 8%, rgba(10, 10, 12, 0.22) 42%, rgba(10, 10, 12, 0.10) 100%);
+            z-index: 1;
+        }
+
+        .art-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 24px;
+            transform: translateY(42px);
+            opacity: 0.95;
+            transition: transform 280ms ease, opacity 280ms ease;
+        }
+
+        .art-card:hover .art-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .art-meta {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #d7cfbe;
+            margin-bottom: 10px;
+        }
+
+        .art-title {
+            font-family: "GT America Trial", sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            line-height: 0.96;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+        }
+
+        .art-artist {
+            color: #f0e9dc;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .art-desc {
+            color: #c8c0b3;
+            line-height: 1.65;
+            font-size: 0.92rem;
+            max-width: 90%;
+        }
+
+        .art-number {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 2;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 0.8rem;
+            color: #faf7f1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        /* FEATURED ARTIST */
+
+        .featured {
+            padding: 90px 28px 40px;
+        }
+
+        .featured-editorial {
+            width: 100%;
+        }
+
+        .featured-top {
+            display: grid;
+            grid-template-columns: 180px 220px 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-bottom: 42px;
+        }
+
+        .featured-kicker {
+            font-family: "GT America Trial", sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 5px;
+            text-decoration-style: dotted;
+            color: #f5f3ee;
+            margin: 0;
+        }
+
+        .featured-meta h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0 0 6px;
+            color: #f5f3ee;
+        }
+
+        .featured-meta p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .featured-description p {
+            margin: 0;
+            max-width: 420px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .featured-bottom {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 48px;
+            align-items: end;
+        }
+
+        .featured-small-images {
+            display: flex;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .small-image {
+            overflow: hidden;
+            background: #18181f;
+        }
+
+        .small-image:first-child {
+            width: 250px;
+            height: 280px;
+        }
+
+        .small-image:last-child {
+            width: 250px;
+            height: 320px;
+        }
+
+        .featured-large-image {
+            width: 100%;
+            max-width: 430px;
+            margin-left: auto;
+            overflow: hidden;
+            background: #18181f;
+        }
+
+        .featured-large-image img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .small-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* EXHIBITION INFO */
+
+        .info {
+            padding: 70px 28px 80px;
+        }
+
+        .section-head h2 {
+            text-transform: uppercase;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 160px 70px 1px 1fr;
+            align-items: center;
+            gap: 22px;
+            padding: 28px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            color: #111;
+        }
+
+        .info-date {
+            font-family: "GT America Trial", sans-serif;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            font-weight: 200;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            color: #cfc6b7;
+        }
+
+        .info-month {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #666;
+            letter-spacing: 0.04em;
+        }
+
+        .info-divider {
+            width: 1px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .info-details h3 {
+            margin: 0 0 6px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            color: #cfc6b7;
+        }
+
+        .info-details p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-note {
+            padding: 0 28px 36px;
+            color: #998f80;
+            font-size: 0.86rem;
+        }
+
+        /* Reveal JS */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Media Queary */
+
+        @media (max-width: 980px) {
+
+            .hero-inner,
+            .featured-card,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy {
+                margin-left: 0;
+                max-width: 560px;
+            }
+
+            .gallery-scroll {
+                grid-auto-columns: 82vw;
+            }
+
+            .featured-image {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .featured-top {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                margin-bottom: 28px;
+            }
+
+            .featured-bottom {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .featured-large-image {
+                max-width: 100%;
+                margin-left: 0;
+            }
+
+            .featured-large-image img {
+                height: 420px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .exhibition-info {
+                padding: 70px 18px 80px;
+            }
+
+            .info-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 22px 20px;
+            }
+
+            .info-divider {
+                display: none;
+            }
+
+            .info-date {
+                font-size: 2.6rem;
+            }
+
+            .info-month {
+                font-size: 0.9rem;
+            }
+
+            .info-details h3 {
+                font-size: 1.2rem;
+            }
+
+            .info-details p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .topbar {
+                padding: 18px 18px;
+            }
+
+            .hero {
+                min-height: 50vh;
+            }
+
+            .hero,
+            .featured,
+            .info {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .section-head,
+            .gallery-scroll,
+            .footer-note {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .gallery-scroll {
+                grid-auto-columns: 88vw;
+            }
+
+            .art-card {
+                min-height: 60vh;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .featured {
+                padding: 70px 18px 30px;
+            }
+
+            .featured-small-images {
+                gap: 10px;
+            }
+
+            .small-image:first-child {
+                width: 120px;
+                height: 150px;
+            }
+
+            .small-image:last-child {
+                width: 150px;
+                height: 190px;
+            }
+
+            .featured-large-image img {
+                height: 340px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Exhibit Page -->
+    <div class="page">
+        <header class="topbar">
+            <div class="brand">La Galerie</div>
+            <nav class="nav">
+                <a href="#intro">Intro</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#artist">Featured Artist</a>
+                <a href="#info">Exhibition Info</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="intro">
+            <div class="hero-inner">
+                <div>
+                    <span class="eyebrow reveal">Digital Art Exhibition 2026</span>
+                    <h1>The Silence Between Brushstrokes.</h1>
+                </div>
+                <p class="hero-copy reveal">
+                    A curated digital exhibition exploring form, texture, and emotion through contemporary visual
+                    composition.
+                </p>
+            </div>
+        </section>
+
+
+
+        <section class="gallery-wrap" id="gallery">
+            <div class="section-head reveal">
+                <h2>Gallery</h2>
+            </div>
+
+            <div class="gallery-scroll reveal">
+                <article class="art-card card1">
+                    <div class="art-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1762119594508-b9be29cd513d?q=80&w=1303&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    </div>
+                    <div class="art-number">01</div>
+                    <div class="art-info">
+                        <span class="art-meta">canvas</span>
+                        <h3 class="art-title">Boston Street Scene</h3>
+                        <p class="art-artist">by Edward Mitchell Bannister</p>
+                        <p class="art-desc">
+                            Boston Street Scene (Boston Common) is an 1898–1899 oil painting by African-American artist
+                            Edward Mitchell Bannister, made during a visit to Boston, Massachusetts.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="art-card card2">
+                    <div class="art-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1577720643144-20587a48755c?q=80&w=2254&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    </div>
+                    <div class="art-number">02</div>
+                    <div class="art-info">
+                        <span class="art-meta">painting</span>
+                        <h3 class="art-title">Mule and Muleteer</h3>
+                        <p class="art-artist">by John Frederick Lewis</p>
+                        <p class="art-desc">
+                            This scene portrays a muleteer standing beside his mule, capturing a quiet scene of everyday
+                            rural life while emphasizing the strong bond between the worker and his animal through
+                            detailed observation and realistic depiction of travel and labor during the 19th century.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="art-card card3">
+                    <div class="art-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1577720643272-265f09367456?q=80&w=1300&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    </div>
+                    <div class="art-number">03</div>
+                    <div class="art-info">
+                        <span class="art-meta">Still life</span>
+                        <h3 class="art-title">A Roman Water Carrier</h3>
+                        <p class="art-artist">by Carl Haag</p>
+                        <p class="art-desc">
+                            This depicts a woman carrying a clay water vessel, capturing a simple moment of everyday
+                            life in Rome while highlighting the dignity of ordinary work and the artist’s interest in
+                            realistic detail and cultural life.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="art-card card4">
+                    <div class="art-bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1688902105043-baaa8b5c5e85?q=80&w=1356&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    </div>
+                    <div class="art-number">04</div>
+                    <div class="art-info">
+                        <span class="art-meta">canvas</span>
+                        <h3 class="art-title">The Fountain</h3>
+                        <p class="art-artist">by John Singer Sargent</p>
+                        <p class="art-desc">
+                            This lively work aptly captures that moment of transition, combining landscape and
+                            portraiture in a composition that speaks to friendship and painterly pursuits while also
+                            celebrating color, surface, and fleeting effects of light and movement.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="featured" id="artist">
+            <div class="featured-editorial">
+
+                <div class="featured-top">
+                    <p class="featured-kicker reveal">FEATURED ARTIST</p>
+
+                    <div class="featured-meta reveal">
+                        <h2>Pierre-Auguste Renoir</h2>
+                        <p>1880–1881, Impressionist series</p>
+                    </div>
+
+                    <div class="featured-description reveal">
+                        <p>
+                            Renoir was one of the leading painters of the Impressionist group. He evolved a technique of
+                            broken brushstrokes and used bold combinations of pure complementary colours, to capture the
+                            light and movement of his landscapes and figure subjects.Perhaps Renoir's most famous work,
+                            'Luncheon of the Boating Party' is now a symbol of the Impressionist movement and French
+                            painting from the 19th century. What makes the painting so engaging is the sense of life it
+                            exudes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="featured-bottom">
+                    <div class="featured-small-images reveal">
+                        <div class="small-image">
+                            <img src="https://www.renoir.net/assets/img/paintings/luncheon-of-the-boating-party.jpg"
+                                alt="Portrait 1">
+                        </div>
+                        <div class="small-image">
+                            <img src="https://www.renoir.net/assets/img/paintings/la-grenouillere.jpg" alt="Portrait 2">
+                        </div>
+                    </div>
+
+                    <div class="featured-large-image reveal">
+                        <img src="https://t0.gstatic.com/licensed-image?q=tbn:ANd9GcRLZay7mQXGuR2W-7adNrozP6-s90lo-WHXkqU7bM-s43HFgQEIqPEuDUv3guDT9wFn"
+                            alt="Featured portrait">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="info" id="info">
+            <div class="section-head reveal" style="padding-left: 0; padding-right: 0; margin-bottom: 18px;">
+                <h2>Exhibition Info</h2>
+            </div>
+            <div class="info-list">
+                <article class="info-row reveal">
+                    <div class="info-date">12–18</div>
+                    <div class="info-month">MAR</div>
+                    <div class="info-divider"></div>
+                    <div class="info-details">
+                        <h3>Opening Exhibition Week</h3>
+                        <p>Online Viewing Room</p>
+                    </div>
+                </article>
+
+                <article class="info-row reveal">
+                    <div class="info-date">21</div>
+                    <div class="info-month">MAR</div>
+                    <div class="info-divider"></div>
+                    <div class="info-details">
+                        <h3>Curated Portrait Release</h3>
+                        <p>Featured Collection</p>
+                    </div>
+                </article>
+
+                <article class="info-row reveal">
+                    <div class="info-date">03–10</div>
+                    <div class="info-month">APR</div>
+                    <div class="info-divider"></div>
+                    <div class="info-details">
+                        <h3>Light & Stillness Series</h3>
+                        <p>Digital Exhibition Hall</p>
+                    </div>
+                </article>
+
+                <article class="info-row reveal">
+                    <div class="info-date">18</div>
+                    <div class="info-month">APR</div>
+                    <div class="info-divider"></div>
+                    <div class="info-details">
+                        <h3>Closing Viewing Day</h3>
+                        <p>Online Archive Access</p>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+        <div class="footer-note reveal">
+            2026 Creative Explorations @jnce.website
+        </div>
+    </div>
+
+
+    <script>
+        // Reveal Effect
+        const revealItems = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+    </script>
+</body>
+
+</html>

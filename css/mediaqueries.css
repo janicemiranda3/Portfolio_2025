@@ -62,6 +62,20 @@
     width: 90px;
     height: 90px;
   }
+
+  /* Exploration Section */
+
+  .artwork-container {
+    padding: 0 50px;
+  }
+
+  .gallery {
+    gap: 40px 30px;
+  }
+
+  .gallery-item img {
+    height: 360px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -341,34 +355,76 @@
     /* Reduce icon size */
   }
 
+  /* Explorations Section */
+
+  .artwork-container {
+    padding: 0 24px;
+  }
+
+  .artwork-title {
+    justify-content: center;
+    margin-bottom: 70px;
+  }
+
+  .artwork-title h1 {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 100px;
+  }
+
+  .gallery-title {
+    font-size: 17px;
+  }
+
+  .gallery-item {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
-@media (max-width: 768px){
-  .cta-contact-section{
+@media (max-width: 768px) {
+  .cta-contact-section {
     margin-top: 2rem;
     padding: 80px 10px;
   }
-  
-  .cta-contact-grid{
+
+  .cta-contact-grid {
     grid-template-columns: 1fr;
     gap: 100px;
   }
-  
-  .cta-right{
-    justify-content:center;
-    align-items:center;
+
+  .cta-right {
+    justify-content: center;
+    align-items: center;
   }
 
-  .cta-scramble-wrap{
-    text-align:center;
-    margin:0 auto;
+  .cta-scramble-wrap {
+    text-align: center;
+    margin: 0 auto;
   }
 
   .music-status {
     padding: 0px 11px;
   }
 
-  .music-text{
+  .music-text {
     font-size: 15px;
   }
 }
@@ -379,6 +435,7 @@
   .index-main-container {
     padding: 0px 20px;
   }
+
   .hero-main-container {
     padding-top: 20px;
   }
@@ -423,22 +480,48 @@
   }
 
   .underline-img {
-  position: absolute;
-  left: 116px;
-  bottom: 35px; 
-  width: 104px; 
-}
+    position: absolute;
+    left: 116px;
+    bottom: 35px;
+    width: 104px;
+  }
 
-.surprise-img {
-  position: absolute;
-  right: 11px; 
-  top: 4px;
-  width: 20px; 
-}
+  .surprise-img {
+    position: absolute;
+    right: 11px;
+    top: 4px;
+    width: 20px;
+  }
 
   .case-container {
     padding: 0px;
   }
 
- 
+  /* Explorations Section */
+
+  .artwork-container {
+    padding: 0px;
+  }
+
+  .artwork-title h1 {
+    font-size: 40px;
+  }
+
+  .gallery {
+    gap: 70px;
+  }
+
+  .gallery-overlay {
+    font-size: 14px;
+  }
+
+  .gallery-title {
+    font-size: 17px;
+  }
+
+  .description {
+    font-size: 14.5px;
+  }
+
+
 }

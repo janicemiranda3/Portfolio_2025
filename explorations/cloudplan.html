@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Pricing Component</title>
+    <meta name="description"
+        content="Hi, I'm Janice Miranda – UI/UX & Web Designer. Explore my portfolio projects, case studies, and design process.">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f6f6f8;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 20px;
+            opacity: 1;
+            background-image: radial-gradient(#e9e9e9 1.7000000000000002px, transparent 1.7000000000000002px), radial-gradient(#e9e9e9 1.7000000000000002px, #f6f6f8 1.7000000000000002px);
+            background-size: 68px 68px;
+            background-position: 0 0, 34px 34px;
+        }
+
+        .cloud {
+            width: 350px;
+            height: 120px;
+
+            background: #f2f9fe;
+            background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+            background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+            background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+            background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+            background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+
+            position: relative;
+            margin: 120px auto 20px;
+        }
+
+        .cloud:after,
+        .cloud:before {
+            content: '';
+            position: absolute;
+            background: #f2f9fe;
+            z-index: -1
+        }
+
+        .cloud:after {
+            width: 100px;
+            height: 100px;
+            top: -50px;
+            left: 50px;
+
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+        }
+
+        .cloud:before {
+            width: 180px;
+            height: 180px;
+            top: -90px;
+            right: 50px;
+            border-radius: 200px;
+            -webkit-border-radius: 200px;
+            -moz-border-radius: 200px;
+        }
+
+        .pricing-section {
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+        }
+
+        .pricing-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #efedff;
+            color: #6d6be8;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+
+        .pricing-badge i {
+            font-size: 14px;
+        }
+
+        .section-title {
+            font-size: 50px;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 14px;
+            letter-spacing: -1.5px;
+        }
+
+        .section-subtitle {
+            max-width: 620px;
+            margin: 0 auto 34px;
+            color: #8b8b95;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .billing-toggle-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .billing-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            background: #f0f0f3;
+            border-radius: 14px;
+            padding: 4px;
+            min-width: 190px;
+        }
+
+        .billing-toggle button {
+            border: none;
+            background: transparent;
+            padding: 12px 22px;
+            font-size: 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #666;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            transition: color 0.3s ease;
+        }
+
+        .billing-toggle button.active {
+            color: #111;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            height: calc(100% - 8px);
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: transform 0.35s cubic-bezier(.4, 0, .2, 1);
+            z-index: 1;
+        }
+
+        .pricing-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            width: 300px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 22px 24px;
+            text-align: left;
+            position: relative;
+            min-height: 470px;
+        }
+
+
+        .pricing-card.featured {
+            border: 2px solid #dedaff;
+            box-shadow: 0 10px 30px rgba(109, 107, 232, 0.103);
+        }
+
+        .pricing-card.featured {
+            background-color: hsla(240, 12%, 92%, 1);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 918 918' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+                radial-gradient(circle at 27% 74%, hsla(240, 11%, 92%, 0.5) 18%, transparent 40%),
+                radial-gradient(circle at 2% 2%, rgb(199, 221, 252) 3.12%, transparent 40%),
+                radial-gradient(circle at 2% 61%, rgb(190, 185, 255) 4.83%, transparent 44.73%),
+                radial-gradient(circle at 16% 7%, hsla(240, 25%, 97%, 0.7) 15.33%, transparent 35%),
+                radial-gradient(circle at 40% 5%, hsla(177, 100%, 93%, 0.7) 3.12%, transparent 40%);
+            background-blend-mode: overlay, normal, normal, normal, normal, normal;
+        }
+
+        .pricing-card.featured {
+            position: relative;
+        }
+
+        .recommended-tag {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+
+            background: #fff;
+            color: #5b5fd6;
+
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .plan-title {
+            font-size: 19px;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+            margin-top: 6px;
+        }
+
+        .price {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .price .amount {
+            font-size: 45px;
+            font-weight: 400;
+            line-height: 1;
+            color: #1a1a1d;
+            letter-spacing: -2px;
+            display: inline-block;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .price .amount.animate {
+            transform: translateY(-6px);
+            opacity: 0;
+        }
+
+        .price .unit {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1d;
+            margin-bottom: 8px;
+            transition: opacity 0.25s ease;
+        }
+
+        .plan-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #8c8c96;
+            margin-bottom: 24px;
+            max-width: 240px;
+        }
+
+        .cta-btn {
+            width: 100%;
+            border: none;
+            border-radius: 999px;
+            height: 46px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.3s ease, opacity 0.3s ease;
+            margin-bottom: 26px;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.98);
+        }
+
+        .light-btn {
+            background: #ecebfa;
+            color: #5b5fd6;
+            border: .5px solid #2f33304d;
+        }
+
+        .light-btn:hover {
+            background: #e1dfff;
+        }
+
+        .cta-btn.featured-btn {
+            position: relative;
+            width: 100%;
+            height: 46px;
+            border-radius: 999px;
+            border: none;
+
+            background: linear-gradient(90deg, #6d6be8, #6b74f4);
+            color: white;
+
+            box-shadow:
+                inset 0px 8px 10px rgba(255, 255, 255, 0.35),
+                0px 6px 12px rgba(50, 50, 93, 0.25),
+                inset 0px -8px 10px rgba(60, 60, 160, 0.45);
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .cta-btn.featured-btn::before {
+            width: 70%;
+            height: 2px;
+            position: absolute;
+            background-color: rgba(250, 250, 250, 0.7);
+            content: "";
+            filter: blur(1px);
+            top: 7px;
+            border-radius: 50%;
+        }
+
+        .cta-btn.featured-btn::after {
+            width: 70%;
+            height: 2px;
+            position: absolute;
+            background-color: rgba(250, 250, 250, 0.15);
+            content: "";
+            filter: blur(1px);
+            bottom: 7px;
+            border-radius: 50%;
+        }
+
+        .cta-btn.featured-btn:active {
+            transform: scale(0.96);
+        }
+
+        .star {
+            position: absolute;
+            font-size: 15px;
+            color: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: all .6s ease;
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+        }
+
+        /* positions at start */
+        .star-1 {
+            top: 50%;
+            left: 40%;
+        }
+
+        .star-2 {
+            top: 35%;
+            left: 60%;
+        }
+
+        .star-3 {
+            top: 60%;
+            left: 55%;
+        }
+
+        .star-4 {
+            top: 40%;
+            left: 30%;
+        }
+
+        /* sparkle effect */
+        .cta-btn.featured-btn:hover .star-1 {
+            top: -8px;
+            left: -5px;
+            opacity: 1;
+        }
+
+        .cta-btn.featured-btn:hover .star-2 {
+            top: -6px;
+            left: 80%;
+            opacity: 1;
+        }
+
+        .cta-btn.featured-btn:hover .star-3 {
+            top: 55px;
+            left: 25%;
+            opacity: 1;
+        }
+
+        .cta-btn.featured-btn:hover .star-4 {
+            top: 50%;
+            left: 105%;
+            opacity: 1;
+        }
+
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #2a2a2f;
+        }
+
+        .features-list li i {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .footer-note {
+            padding: 60px 0px 20px;
+            color: #8b8b95;
+            font-size: 0.86rem;
+        }
+
+        @media (max-width: 900px) {
+
+            .pricing-section {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .pricing-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 60px;
+            }
+
+            .pricing-card {
+                width: 100%;
+                max-width: 360px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .section-title {
+                font-size: 30px;
+            }
+
+            .section-subtitle {
+                font-size: 14px;
+            }
+
+            .billing-toggle-wrap {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="pricing-section">
+
+        <div class="pricing-badge">
+            <i class="ph ph-currency-circle-dollar"></i>
+            <span>Pricing</span>
+        </div>
+
+        <h1 class="section-title">Cloud Plans for Growing Teams</h1>
+
+        <p class="section-subtitle">
+            Build, deploy, and manage your projects with flexible cloud solutions.
+            Upgrade anytime as your team and workload expand. <br>
+        </p>
+
+        <div class="billing-toggle-wrap">
+            <div class="billing-toggle">
+                <div class="toggle-slider"></div>
+                <button id="monthlyBtn" class="active">Monthly</button>
+                <button id="yearlyBtn">Yearly</button>
+            </div>
+
+        </div>
+
+        <div class="pricing-wrapper">
+
+            <div class="pricing-card">
+                <h2 class="plan-title">Free</h2>
+
+                <div class="price">
+                    <span class="amount" data-month="0" data-year="0">$0</span>
+                    <span class="unit">/mo</span>
+                </div>
+
+                <p class="plan-desc">
+                    Perfect for individuals exploring cloud tools and basic hosting.
+                </p>
+
+                <button class="cta-btn light-btn">Get Started</button>
+
+                <ul class="features-list">
+                    <li><i class="ph ph-check-circle"></i> 5 GB cloud storage</li>
+                    <li><i class="ph ph-check-circle"></i> 1 active project workspace</li>
+                    <li><i class="ph ph-check-circle"></i> Basic analytics dashboard</li>
+                    <li><i class="ph ph-check-circle"></i> Community support</li>
+                    <li><i class="ph ph-check-circle"></i> Standard data encryption</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="recommended-tag">
+                    <i class="ph-fill ph-lightning"></i>
+                    <span>POPULAR</span>
+                </div>
+
+                <h2 class="plan-title">Standard</h2>
+
+                <div class="price">
+                    <span class="amount" data-month="18" data-year="199">$18</span>
+                    <span class="unit">/mo</span>
+                </div>
+
+                <p class="plan-desc">
+                    Designed for freelancers and small teams managing multiple projects.
+                </p>
+
+                <button class="cta-btn featured-btn">
+                    Start Free Trial
+                    <i class="ph-fill ph-star-four star star-1"></i>
+                    <i class="ph-fill ph-star-four star star-2"></i>
+                    <i class="ph-fill ph-star-four star star-3"></i>
+                    <i class="ph-fill ph-star-four star star-4"></i>
+                </button>
+
+                <ul class="features-list">
+                    <li><i class="ph ph-check-circle"></i> 100 GB cloud storage</li>
+                    <li><i class="ph ph-check-circle"></i> 10 project workspaces</li>
+                    <li><i class="ph ph-check-circle"></i> Advanced analytics</li>
+                    <li><i class="ph ph-check-circle"></i> Priority email support</li>
+                    <li><i class="ph ph-check-circle"></i> Automated backups</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card">
+                <h2 class="plan-title">Premium</h2>
+
+                <div class="price">
+                    <span class="amount" data-month="42" data-year="399">$42</span>
+                    <span class="unit">/mo</span>
+                </div>
+
+                <p class="plan-desc">
+                    Built for growing teams that need scalable infrastructure and full control.
+                </p>
+
+                <button class="cta-btn light-btn">Upgrade To Premium</button>
+
+                <ul class="features-list">
+                    <li><i class="ph ph-check-circle"></i> Unlimited cloud storage</li>
+                    <li><i class="ph ph-check-circle"></i> Unlimited workspaces</li>
+                    <li><i class="ph ph-check-circle"></i> Real-time analytics & insights</li>
+                    <li><i class="ph ph-check-circle"></i> 24/7 priority support</li>
+                    <li><i class="ph ph-check-circle"></i> Enterprise-grade security</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        const monthlyBtn = document.getElementById("monthlyBtn");
+        const yearlyBtn = document.getElementById("yearlyBtn");
+        const prices = document.querySelectorAll(".amount");
+        const units = document.querySelectorAll(".unit");
+        const slider = document.querySelector(".toggle-slider");
+
+        function updatePrice(type) {
+            prices.forEach(price => {
+                price.classList.add("animate");
+
+                setTimeout(() => {
+                    price.textContent = "$" + price.dataset[type];
+                    price.classList.remove("animate");
+                }, 180);
+            });
+
+            units.forEach(unit => {
+                unit.style.opacity = "0";
+
+                setTimeout(() => {
+                    unit.textContent = type === "month" ? "/mo" : "/yr";
+                    unit.style.opacity = "1";
+                }, 180);
+            });
+        }
+
+        monthlyBtn.addEventListener("click", () => {
+            monthlyBtn.classList.add("active");
+            yearlyBtn.classList.remove("active");
+            slider.style.transform = "translateX(0%)";
+            updatePrice("month");
+        });
+
+        yearlyBtn.addEventListener("click", () => {
+            yearlyBtn.classList.add("active");
+            monthlyBtn.classList.remove("active");
+            slider.style.transform = "translateX(100%)";
+            updatePrice("year");
+        });
+    </script>
+
+</body>
+
+</html>
