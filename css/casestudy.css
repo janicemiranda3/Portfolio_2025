@@ -895,11 +895,13 @@
   }
 
   .p-map img {
-    max-width: 300px;
-  }
+        max-width: 100%;
+        border-radius: 0.5rem;
+    }
 
   .mockup img {
-    max-width: 300px;
+        max-width: 100%;
+        border-radius: 0.5rem;
   }
 
   .use-findings-wrapper {
