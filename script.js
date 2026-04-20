@@ -1,6 +1,5 @@
-// ==============================
-// HIDDEN / REVEAL EFFECTS
-// ==============================
+// HIDDEN / REVEAL EFFECTS --->
+
 
 function initHiddenEffects() {
   const hiddenElements = document.querySelectorAll(".hidden");
@@ -33,9 +32,8 @@ function initHrEffects() {
 }
 
 
-// ==============================
-// NAVIGATION / HAMBURGER MENU
-// ==============================
+// NAVIGATION / HAMBURGER MENU --->
+
 
 function initHamburgerMenu() {
   const menuIcon = document.getElementById("menu-icon");
@@ -93,9 +91,8 @@ function initNavBarAnimation() {
 }
 
 
-// ==============================
-// SMOOTH SCROLL
-// ==============================
+// SMOOTH SCROLL --->
+
 
 function initSmoothScroll() {
   const anchors = document.querySelectorAll('a[href^="#"]');
@@ -118,9 +115,8 @@ function initSmoothScroll() {
 }
 
 
-// ==============================
-// CUSTOM CURSOR
-// ==============================
+// CUSTOM CURSOR --->
+
 
 const cursor = {
   delay: 8,
@@ -259,9 +255,8 @@ function saveCursorPositionBeforeUnload() {
 }
 
 
-// ==============================
-// WINDOW RESIZE
-// ==============================
+// WINDOW RESIZE --->
+
 
 function initResizeEffect() {
   window.addEventListener("resize", () => {
@@ -270,9 +265,8 @@ function initResizeEffect() {
 }
 
 
-// ==============================
-// TEXT SCRAMBLE
-// ==============================
+// TEXT SCRAMBLE --->
+
 
 class TextScramble {
   constructor(el) {
@@ -378,9 +372,8 @@ function initTextScramble() {
 }
 
 
-// ==============================
-// INIT EVERYTHING
-// ==============================
+// INIT EVERYTHING ======>
+
 
 document.addEventListener("DOMContentLoaded", () => {
   initHiddenEffects();
