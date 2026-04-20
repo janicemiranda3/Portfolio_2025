@@ -1,371 +1,396 @@
-// PAGE HIDDEN EFFECT ----->
+// ==============================
+// HIDDEN / REVEAL EFFECTS
+// ==============================
 
-const observer = new IntersectionObserver((entries) => {
+function initHiddenEffects() {
+  const hiddenElements = document.querySelectorAll(".hidden");
+  if (!hiddenElements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry)
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
     });
-});
+  });
 
-//else {
-//entry.target.classList.remove('show');
-//}
+  hiddenElements.forEach((el) => observer.observe(el));
+}
 
-// HORIZONTAL TAG EFFECT ---->
+function initHrEffects() {
+  const hrElements = document.querySelectorAll("hr");
+  if (!hrElements.length) return;
 
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observer.observe(el));
-
-
-
-const hrObserver = new IntersectionObserver((entries) => {
+  const hrObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
     });
-});
+  });
 
-const hrElements = document.querySelectorAll("hr"); // Select all hr elements
-hrElements.forEach((hr) => hrObserver.observe(hr)); // Observe each one
-
-// NAVIGATION HAMBURGER MENU --------->
-
-let menu = document.querySelector('#menu-icon');
-let navmenu = document.querySelector('.nav-links');
-
-menu.onclick = () => {
-    menu.classList.toggle('ph-list'); // Menu icon
-    menu.classList.toggle('ph-x'); // Close icon
-    navmenu.classList.toggle('open'); // Show/hide menu
-};
-
-// SMOOTH SCROLLING ---------->
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    });
-});
-
-//  CUSTOM PAGE CURSOR ------------> 
-
-var cursor = {
-    delay: 8, // Delay factor for the trailing effect
-    _x: 0,
-    _y: 0,
-    endX: (window.innerWidth / 2),
-    endY: (window.innerHeight / 2),
-    cursorVisible: true,
-    cursorEnlarged: false,
-    $dot: document.querySelector('.cursor-dot'),
-    $outline: document.querySelector('.cursor-dot-outline'),
-
-    init: function () {
-        this.dotSize = this.$dot.offsetWidth;
-        this.outlineSize = this.$outline.offsetWidth;
-
-        this.setupEventListeners();
-        this.animateDotOutline();
-    },
-
-    setupEventListeners: function () {
-        var self = this;
-
-        // Cursor hover effects for links (excluding .logo)
-        document.querySelectorAll('a').forEach(function (el) {
-            el.addEventListener('mouseover', function () {
-                if (!el.closest('.logo')) { // Exclude .logo
-                    self.cursorEnlarged = true;
-                    self.toggleCursorSize();
-                }
-            });
-
-            el.addEventListener('mouseout', function () {
-                if (!el.closest('.logo')) { // Exclude .logo
-                    self.cursorEnlarged = false;
-                    self.toggleCursorSize();
-                }
-            });
-        });
-
-        // Mousemove event for cursor position
-        document.addEventListener('mousemove', function (e) {
-            self.cursorVisible = true;
-            self.toggleCursorVisibility();
-
-            // Update the position of the dot immediately
-            self.endX = e.clientX;
-            self.endY = e.clientY;
-            self.$dot.style.top = `${self.endY}px`;
-            self.$dot.style.left = `${self.endX}px`;
-        });
-
-        // Hide cursor when leaving the window
-        document.addEventListener('mouseleave', function () {
-            self.cursorVisible = false;
-            self.toggleCursorVisibility();
-        });
-
-        // Show cursor when entering the window
-        document.addEventListener('mouseenter', function () {
-            self.cursorVisible = true;
-            self.toggleCursorVisibility();
-        });
-    },
-
-    animateDotOutline: function () {
-        var self = this;
-
-        // Smoothly interpolate the outline position towards the dot
-        self._x += (self.endX - self._x) / self.delay;
-        self._y += (self.endY - self._y) / self.delay;
-        self.$outline.style.top = `${self._y}px`;
-        self.$outline.style.left = `${self._x}px`;
-
-        requestAnimationFrame(this.animateDotOutline.bind(self));
-    },
-
-    toggleCursorSize: function () {
-        var self = this;
-
-        if (self.cursorEnlarged) {
-            self.$dot.style.transform = 'translate(-50%, -50%) scale(0)';
-            self.$outline.style.transform = 'translate(-50%, -50%) scale(2.8)';
-        } else {
-            self.$dot.style.transform = 'translate(-50%, -50%) scale(1)';
-            self.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
-        }
-    },
-
-    toggleCursorVisibility: function () {
-        var self = this;
-
-        if (self.cursorVisible) {
-            self.$dot.style.opacity = 1;
-            self.$outline.style.opacity = 1;
-        } else {
-            self.$dot.style.opacity = 0;
-            self.$outline.style.opacity = 0;
-        }
-    }
-};
-
-// Store cursor position before page reload
-window.addEventListener("beforeunload", function () {
-    localStorage.setItem("cursorX", cursor.endX);
-    localStorage.setItem("cursorY", cursor.endY);
-});
-
-// Restore cursor position after reload
-window.addEventListener("DOMContentLoaded", function () {
-    const storedX = localStorage.getItem("cursorX");
-    const storedY = localStorage.getItem("cursorY");
-
-    if (storedX && storedY) {
-        cursor.endX = parseFloat(storedX);
-        cursor.endY = parseFloat(storedY);
-        cursor.$dot.style.top = `${cursor.endY}px`;
-        cursor.$dot.style.left = `${cursor.endX}px`;
-    }
-});
+  hrElements.forEach((hr) => hrObserver.observe(hr));
+}
 
 
-// Initialize the cursor (desktop only)
-document.addEventListener("DOMContentLoaded", function () {
-    // Detect touch devices
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+// ==============================
+// NAVIGATION / HAMBURGER MENU
+// ==============================
 
-    if (!isTouchDevice) {
-        // Run custom cursor only on desktop
-        cursor.init();
-    } else {
-        // Hide custom cursor completely on mobile
-        const dot = document.querySelector('.cursor-dot');
-        const outline = document.querySelector('.cursor-dot-outline');
-        if (dot) dot.style.display = 'none';
-        if (outline) outline.style.display = 'none';
-    }
-});
+function initHamburgerMenu() {
+  const menuIcon = document.getElementById("menu-icon");
+  const navMenu = document.querySelector(".nav-links");
 
+  if (!menuIcon || !navMenu) return;
 
-
-// INDEX NAVIGATION BAR START ANIMATION ------>
-
-document.addEventListener("DOMContentLoaded", function () {
-    if (
-        (window.location.pathname.includes("index.html") || window.location.pathname === "/") &&
-        !sessionStorage.getItem("navAnimated")
-    ) {
-        document.querySelector(".nav-bar").classList.add("animated");
-        sessionStorage.setItem("navAnimated", "true");
-    }
-});
-
-
-// NAVIGATION ACTIVE LINKS ------->
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll(".nav-links li a");
-    const currentPage = window.location.pathname.split("/").pop(); // Get current file name
-
-    navLinks.forEach(link => {
-        if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-        } else {
-            link.classList.remove("active");
-        }
-    });
-});
-
-
-// SMOOTH TRANSITION ON WINDOW RESIZE ------>
-
-window.addEventListener("resize", function () {
-    document.body.style.transition = "background-color 0.5s ease-in-out";
-});
-
-// Hamburger Menu Animation ------>
-
-const menuIcon = document.getElementById("menu-icon");
-
-menuIcon.addEventListener("click", () => {
+  menuIcon.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
     menuIcon.classList.toggle("active");
 
     if (menuIcon.classList.contains("active")) {
-        menuIcon.classList.remove("ph-equals");
-        menuIcon.classList.add("ph-x");
+      menuIcon.classList.remove("ph-equals");
+      menuIcon.classList.add("ph-x");
     } else {
-        menuIcon.classList.remove("ph-x");
-        menuIcon.classList.add("ph-equals");
+      menuIcon.classList.remove("ph-x");
+      menuIcon.classList.add("ph-equals");
     }
-});
-
-// CTA Text Scramble Effect ------>
-
-class TextScramble {
-    constructor(el) {
-        this.el = el
-        this.chars = '!<>-_\\/[]{}—=+*^?#________'
-        this.update = this.update.bind(this)
-    }
-
-    setText(newText) {
-        const oldText = this.el.innerText
-        const length = Math.max(oldText.length, newText.length)
-
-        const promise = new Promise((resolve) => {
-            this.resolve = resolve
-        })
-
-        this.queue = []
-
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || ''
-            const to = newText[i] || ''
-            const start = Math.floor(Math.random() * 30)
-            const end = start + Math.floor(Math.random() * 35)
-            this.queue.push({ from, to, start, end })
-        }
-
-        cancelAnimationFrame(this.frameRequest)
-        this.frame = 0
-        this.update()
-        return promise
-    }
-
-    update() {
-        let output = ''
-        let complete = 0
-
-        for (let i = 0, n = this.queue.length; i < n; i++) {
-
-            let { from, to, start, end, char } = this.queue[i]
-
-            if (this.frame >= end) {
-                complete++
-                output += to
-
-            } else if (this.frame >= start) {
-
-                if (!char || Math.random() < 0.15) {
-                    char = this.randomChar()
-                    this.queue[i].char = char
-                }
-
-                output += `<span class="scramble-dud">${char}</span>`
-
-            } else {
-                output += from
-            }
-        }
-
-        this.el.innerHTML = output
-
-        if (complete === this.queue.length) {
-            this.resolve()
-        } else {
-            this.frameRequest = requestAnimationFrame(this.update)
-            this.frame++
-        }
-    }
-
-    randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)]
-    }
+  });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initActiveNavLinks() {
+  const navLinks = document.querySelectorAll(".nav-links li a");
+  if (!navLinks.length) return;
 
-    const section = document.querySelector(".cta-scramble-section")
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-    const line1 = document.getElementById("scramble-line-1")
-    const line1b = document.getElementById("scramble-line-1b")
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
 
-    const line2 = document.getElementById("scramble-line-2")
-    const line2b = document.getElementById("scramble-line-2b")
+    if (
+      href === currentPage ||
+      (currentPage === "index.html" && (href === "/" || href === "index.html"))
+    ) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+}
 
-    const fx1 = new TextScramble(line1)
-    const fx1b = new TextScramble(line1b)
+function initNavBarAnimation() {
+  const navBar = document.querySelector(".nav-bar");
+  if (!navBar) return;
 
-    const fx2 = new TextScramble(line2)
-    const fx2b = new TextScramble(line2b)
+  const isHomePage =
+    window.location.pathname.includes("index.html") ||
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/");
 
-    let hasAnimated = false
+  if (isHomePage && !sessionStorage.getItem("navAnimated")) {
+    navBar.classList.add("animated");
+    sessionStorage.setItem("navAnimated", "true");
+  }
+}
 
-    const scrambleObserver = new IntersectionObserver(async (entries) => {
 
-        for (const entry of entries) {
+// ==============================
+// SMOOTH SCROLL
+// ==============================
 
-            if (entry.isIntersecting && !hasAnimated) {
+function initSmoothScroll() {
+  const anchors = document.querySelectorAll('a[href^="#"]');
+  if (!anchors.length) return;
 
-                hasAnimated = true
+  anchors.forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      const target = document.querySelector(href);
 
-                await fx1.setText("Thanks for checking out")
-                await fx1b.setText("my corner of the Internet! 💌")
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+}
 
-                setTimeout(async () => {
 
-                    await fx2.setText("If you want to contact me, feel free")
-                    await fx2b.setText("to reach out through any of the links below.")
+// ==============================
+// CUSTOM CURSOR
+// ==============================
 
-                }, 400)
+const cursor = {
+  delay: 8,
+  _x: 0,
+  _y: 0,
+  endX: window.innerWidth / 2,
+  endY: window.innerHeight / 2,
+  cursorVisible: true,
+  cursorEnlarged: false,
+  $dot: null,
+  $outline: null,
 
-            }
+  init() {
+    this.$dot = document.querySelector(".cursor-dot");
+    this.$outline = document.querySelector(".cursor-dot-outline");
 
+    if (!this.$dot || !this.$outline) return;
+
+    this.dotSize = this.$dot.offsetWidth;
+    this.outlineSize = this.$outline.offsetWidth;
+
+    this.setupEventListeners();
+    this.animateDotOutline();
+  },
+
+  setupEventListeners() {
+    const self = this;
+
+    document.querySelectorAll("a, .gallery-item").forEach((el) => {
+      el.addEventListener("mouseover", () => {
+        if (!el.closest(".logo")) {
+          self.cursorEnlarged = true;
+          self.toggleCursorSize();
+        }
+      });
+
+      el.addEventListener("mouseout", () => {
+        if (!el.closest(".logo")) {
+          self.cursorEnlarged = false;
+          self.toggleCursorSize();
+        }
+      });
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      self.cursorVisible = true;
+      self.toggleCursorVisibility();
+
+      self.endX = e.clientX;
+      self.endY = e.clientY;
+
+      if (self.$dot) {
+        self.$dot.style.top = `${self.endY}px`;
+        self.$dot.style.left = `${self.endX}px`;
+      }
+    });
+
+    document.addEventListener("mouseleave", () => {
+      self.cursorVisible = false;
+      self.toggleCursorVisibility();
+    });
+
+    document.addEventListener("mouseenter", () => {
+      self.cursorVisible = true;
+      self.toggleCursorVisibility();
+    });
+  },
+
+  animateDotOutline() {
+    if (!this.$outline) return;
+
+    this._x += (this.endX - this._x) / this.delay;
+    this._y += (this.endY - this._y) / this.delay;
+
+    this.$outline.style.top = `${this._y}px`;
+    this.$outline.style.left = `${this._x}px`;
+
+    requestAnimationFrame(() => this.animateDotOutline());
+  },
+
+  toggleCursorSize() {
+    if (!this.$dot || !this.$outline) return;
+
+    if (this.cursorEnlarged) {
+      this.$dot.style.transform = "translate(-50%, -50%) scale(0)";
+      this.$outline.style.transform = "translate(-50%, -50%) scale(2.8)";
+    } else {
+      this.$dot.style.transform = "translate(-50%, -50%) scale(1)";
+      this.$outline.style.transform = "translate(-50%, -50%) scale(1)";
+    }
+  },
+
+  toggleCursorVisibility() {
+    if (!this.$dot || !this.$outline) return;
+
+    if (this.cursorVisible) {
+      this.$dot.style.opacity = 1;
+      this.$outline.style.opacity = 1;
+    } else {
+      this.$dot.style.opacity = 0;
+      this.$outline.style.opacity = 0;
+    }
+  }
+};
+
+function initCustomCursor() {
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+  const dot = document.querySelector(".cursor-dot");
+  const outline = document.querySelector(".cursor-dot-outline");
+
+  if (isTouchDevice) {
+    if (dot) dot.style.display = "none";
+    if (outline) outline.style.display = "none";
+    return;
+  }
+
+  cursor.init();
+
+  const storedX = localStorage.getItem("cursorX");
+  const storedY = localStorage.getItem("cursorY");
+
+  if (storedX && storedY && cursor.$dot) {
+    cursor.endX = parseFloat(storedX);
+    cursor.endY = parseFloat(storedY);
+    cursor.$dot.style.top = `${cursor.endY}px`;
+    cursor.$dot.style.left = `${cursor.endX}px`;
+  }
+}
+
+function saveCursorPositionBeforeUnload() {
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("cursorX", cursor.endX);
+    localStorage.setItem("cursorY", cursor.endY);
+  });
+}
+
+
+// ==============================
+// WINDOW RESIZE
+// ==============================
+
+function initResizeEffect() {
+  window.addEventListener("resize", () => {
+    document.body.style.transition = "background-color 0.5s ease-in-out";
+  });
+}
+
+
+// ==============================
+// TEXT SCRAMBLE
+// ==============================
+
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+
+    const promise = new Promise((resolve) => {
+      this.resolve = resolve;
+    });
+
+    this.queue = [];
+
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || "";
+      const to = newText[i] || "";
+      const start = Math.floor(Math.random() * 30);
+      const end = start + Math.floor(Math.random() * 35);
+      this.queue.push({ from, to, start, end });
+    }
+
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+
+  update() {
+    let output = "";
+    let complete = 0;
+
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.15) {
+          char = this.randomChar();
+          this.queue[i].char = char;
         }
 
-    }, { threshold: 0.4 })
+        output += `<span class="scramble-dud">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
 
-    scrambleObserver.observe(section)
+    this.el.innerHTML = output;
 
-})
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }
+}
+
+function initTextScramble() {
+  const section = document.querySelector(".cta-scramble-section");
+  const line1 = document.getElementById("scramble-line-1");
+  const line1b = document.getElementById("scramble-line-1b");
+  const line2 = document.getElementById("scramble-line-2");
+  const line2b = document.getElementById("scramble-line-2b");
+
+  if (!section || !line1 || !line1b || !line2 || !line2b) return;
+
+  const fx1 = new TextScramble(line1);
+  const fx1b = new TextScramble(line1b);
+  const fx2 = new TextScramble(line2);
+  const fx2b = new TextScramble(line2b);
+
+  let hasAnimated = false;
+
+  const scrambleObserver = new IntersectionObserver(async (entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true;
+
+        await fx1.setText("Thanks for checking out");
+        await fx1b.setText("my corner of the Internet! 💌");
+
+        setTimeout(async () => {
+          await fx2.setText("If you want to contact me, feel free");
+          await fx2b.setText("to reach out through any of the links below.");
+        }, 400);
+      }
+    }
+  }, { threshold: 0.4 });
+
+  scrambleObserver.observe(section);
+}
+
+
+// ==============================
+// INIT EVERYTHING
+// ==============================
+
+document.addEventListener("DOMContentLoaded", () => {
+  initHiddenEffects();
+  initHrEffects();
+  initHamburgerMenu();
+  initActiveNavLinks();
+  initNavBarAnimation();
+  initSmoothScroll();
+  initCustomCursor();
+  initResizeEffect();
+  initTextScramble();
+  saveCursorPositionBeforeUnload();
+});
