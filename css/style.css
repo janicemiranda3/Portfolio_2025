@@ -369,7 +369,7 @@ p {
 }
 
 .case-text p {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 400;
   color: #040f4e;
   padding-left: 0.5rem;
@@ -377,7 +377,7 @@ p {
 }
 
 .case-text i {
-  font-size: 18px;
+  font-size: 19px;
   color: #040f4e;
   position: relative;
   top: 3px;
@@ -550,7 +550,7 @@ p {
 }
 
 .gallery-title {
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
 .description {
@@ -617,6 +617,55 @@ p {
    opacity: 1;
    transform: translateY(0);
  }
+
+/* PORTFOLIO END SECTION */
+
+.portfolio-end-section {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  padding: 150px 20px;
+  overflow: hidden;
+}
+
+.portfolio-end-section p {
+  max-width: 35ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  color: #040f4e;
+  position: relative;
+  z-index: 2;
+}
+
+.plane-svg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flight-path {
+  fill: none;
+  stroke: none;
+}
+
+.plane {
+  opacity: 0;
+}
+
+.plane > * {
+  fill: white;
+  stroke: #040f4e;
+  stroke-width: 6px;
+  fill-rule: nonzero;
+  transform: scale(0.7);
+}
 
 /* FOOTER SECTION */
 

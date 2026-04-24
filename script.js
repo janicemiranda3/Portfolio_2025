@@ -387,3 +387,56 @@ document.addEventListener("DOMContentLoaded", () => {
   initTextScramble();
   saveCursorPositionBeforeUnload();
 });
+
+
+// GSAP ======>
+
+
+gsap.registerPlugin(MotionPathPlugin);
+
+const endSection = document.querySelector(".portfolio-end-section");
+
+let planePlayed = false;
+
+const planeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !planePlayed) {
+        planePlayed = true;
+
+        gsap.to(".plane", {
+          opacity: 1,
+          duration: 0.2
+        });
+
+        gsap.to(".plane", {
+          motionPath: {
+            path: ".flight-path",
+            align: ".flight-path",
+            alignOrigin: [0.8, 0.2],
+            autoRotate: true,
+            start: 0,
+            end: 1
+          },
+          duration: 6,
+          ease: "power4.out"
+        });
+
+        gsap.from(".portfolio-end-section p", {
+          opacity: 0,
+          y: 50,
+          delay: 1.2,
+          duration: 0.8,
+          ease: "power4.out"
+        });
+
+        planeObserver.unobserve(endSection);
+      }
+    });
+  },
+  {
+    threshold: 0.4
+  }
+);
+
+planeObserver.observe(endSection);
