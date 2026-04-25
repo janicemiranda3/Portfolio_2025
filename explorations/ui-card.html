@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jnce — UI Component</title>
+    <meta name="description"
+        content="Hi, I'm Janice Miranda – UI/UX & Web Designer. Explore my portfolio projects, case studies, and design process." />
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico" />
+
+    <!----------Phosphor icons---------->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/casestudy.css">
+    <link rel="stylesheet" href="../css/explorations.css">
+
+    <!----------Phosphor icons---------->
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1"></script>
+
+</head>
+
+<body>
+
+    <!---------- Navigation Bar ---------->
+
+    <header class="nav-bar">
+        <nav class="logo">
+            <span class="circle-logo"></span>
+        </nav>
+        <ul class="nav-links">
+            <li><a href="../index.html">design</a></li>
+            <li><a href="../about.html">about</a></li>
+            <li><a href="../assets/Janice Resume.pdf" target="_blank">resume</a></li>
+            <li><a class="connect-btn" href="mailto:janicemiranda3@gmail.com">contact</a></li>
+        </ul>
+        <div class="contact-btn back-btn">
+            <a href="../index.html" style="color: #e85f7b;">back<i class="ph ph-arrow-u-up-left"
+                    style="color: #e85f7b;"></i></a>
+        </div>
+        <i class="ph ph-equals" id="menu-icon"></i>
+    </header>
+
+
+    <!---------- Page Cursor ---------->
+    <div class="cursor-dot-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <!---------- Content Begins Here ---------->
+
+    <div class="project-main-container">
+
+        <!-- Mockup Image 2 -->
+
+        <section class="exp-mockup exp-hero-img hidden">
+            <img src="../assets/ui-card-1.png" alt="Image 1">
+        </section>
+
+
+        <!-- mov -->
+
+        <section class="component-section hidden">
+            <div class="component-content">
+                <span class="component-label">UI Component</span>
+
+                <h2>Achievement Reward Card</h2>
+
+                <p>
+                    An interactive achievement card designed to celebrate user progress through
+                    a small reward moment. The card uses a swipe-based button, a level-unlock
+                    state, and confetti feedback to make the interaction feel more satisfying.
+                </p>
+
+                <div class="component-info-grid reveal">
+                    <div class="component-info-card">
+                        <h3>Interaction</h3>
+                        <p>Swipe to claim reward</p>
+                    </div>
+
+                    <div class="component-info-card">
+                        <h3>Feedback</h3>
+                        <p>Level 1 unlocked + confetti</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-video reveal">
+                <video autoplay loop muted playsinline>
+                    <source src="../assets/achievement-card.mov" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+
+        <!-- Component IMG-->
+
+        <section class="exp-mockup hidden">
+            <img src="../assets/ui-card-component.png" alt="Image 2">
+        </section>
+
+
+        <!----------  End Section ---------->
+
+        <section class="case-study-section hidden">
+
+            <span style="color: #6983c9;"> That's a wrap!
+            </span>
+            </a>
+        </section>
+
+
+        <!-- section ends -->
+
+
+    </div>
+    <!---------- Content Ends Here ---------->
+
+
+
+
+    <!---------- Copyrights ---------->
+
+    <div class="end-text wave-top">
+        <p>Designed and hand-coded by Janice &copy; 2025</p>
+    </div>
+    <div class="end-empty"></div>
+
+
+    <!---------- Javascript ---------->
+
+    <script src="../script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+    <script>
+        // Reveal Effect
+        const revealItems = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+    </script>
+
+</body>
+
+</html>

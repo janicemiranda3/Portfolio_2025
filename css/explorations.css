@@ -385,6 +385,84 @@
     color: #89b14a;
 }
 
+/* UI Component Project */
+
+.component-section {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 58px;
+  padding: 50px 40px;
+}
+
+.component-label {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: #4B5681;
+}
+
+.component-content h2 {
+  font-family: "Rungli",serif;
+  font-size: 32px;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #040f4e;
+}
+
+.component-content > p {
+  font-family: 'PP Neue Montreal', sans-serif;
+  max-width: 560px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4B5681;
+  margin-bottom: 24px;
+}
+
+.component-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 500px;
+}
+
+.component-info-card {
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(4, 15, 78, 0.12);
+}
+
+.component-info-card h3 {
+  font-family: 'PP Neue Montreal', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #040f4e;
+}
+
+.component-info-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4B5681;
+}
+
+.component-video {
+  display: flex;
+  justify-content: center;
+}
+
+.component-video video {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 /* ---- Media Queries for Explorations ---- */
 
 @media (max-width: 1024px) {
@@ -483,6 +561,29 @@
         font-size: clamp(1.5rem, 3vw, 3.4rem);
         padding: 0 0.5rem;
     }
+
+    .component-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 44px 20px;
+  }
+
+  .component-content h2 {
+    font-size: 26px;
+  }
+
+  .component-content > p {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .component-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .component-video video {
+    max-width: 260px;
+  }
 }
 
 /* Smaller Screen */
