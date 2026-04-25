@@ -294,6 +294,7 @@
   height: 100%;
   object-fit: cover;
   animation: spin 6s linear infinite;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
 .music-text{
