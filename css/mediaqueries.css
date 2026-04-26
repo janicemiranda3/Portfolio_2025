@@ -420,11 +420,14 @@
     margin: 0 auto;
   }
 
-  .music-status {
-    padding: 0px 11px;
+  .music-status{
+    width: 170px;
+    margin: 0 auto;
+    gap: 8px;
   }
 
-  .music-text {
+  .music-text{
+    justify-content: center;
     font-size: 15px;
   }
 }
