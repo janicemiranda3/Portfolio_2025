@@ -371,6 +371,20 @@ function initTextScramble() {
   scrambleObserver.observe(section);
 }
 
+function initHighlightReveal(){
+  const highlights = document.querySelectorAll(".blue-highlight");
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("reveal");
+      }
+    });
+  });
+
+  highlights.forEach(el => observer.observe(el));
+}
+
 
 // INIT EVERYTHING ======>
 
@@ -386,6 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initResizeEffect();
   initTextScramble();
   saveCursorPositionBeforeUnload();
+  initHighlightReveal();
 });
 
 
